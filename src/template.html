@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>todo list</title>
 </head>
 <body>
-    hello
+    <h1>todo list</h1>
+
+    <!-- Project selection -->
+    <label for="project-select">Selection Project:</label>
+    <select id="project-select"></select>
+    <button id="new-project-btn">New Project</button>
+
+    <!-- Add a new todo -->
+     <input type="text" id="todo-title" placeholder="Title">
+     <input type="date" id="todo-dueDate">
+     <select name="todo-priority">
+        <option value="low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+     </select>
+     <button id="add-todo-btn">Add To-Do</button>
+
+     <!-- todo list display -->
+    <ul id="todo-list"></ul>
+
+    
+    <script src="index.js"></script>
 </body>
 </html>
