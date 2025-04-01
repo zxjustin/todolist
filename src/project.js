@@ -1,3 +1,4 @@
+import Todo from "./todo";
 export default class Project{
     constructor(name) {
         this.name = name;
@@ -8,7 +9,7 @@ export default class Project{
         this.todos.push(todo);
     }
 
-    removeTodo(index) {
-        this.todos.splice(index, 1);
+    removeTodo(todoTitle) {
+        this.todos = this.todos.filter(todo => todo.title != todoTitle);
     }
 }
