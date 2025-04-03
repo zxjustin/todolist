@@ -1,18 +1,22 @@
-import Project from "./project";
+import Todo from "./todo";
+export default class Storage {
 
-export default class Storage{
-    static saveProjects(projects) {
-        localStorage.setItem("projects", JSON.stringify(projects));
-    }
-
-    static loadProjects() {
-        const data = JSON.parse(localStorage.getItem("projects")) || [];
-        return data.map(projectData => {
-            const project = new Project(projectData.name);
-            projectData.todos.forEach(todo => {
-                project.addTodo(new todo(todo.title, todo.description, todo.dueDate, todo.priority, todo.notes, todo.checklist));
-            });
-            return project;
-        });
-    }
+static saveTodoList(todoList) {
+    localStorage.setItem("todoList", JSON.stringify(todoList.projects));
+  }
+  
+  static loadTodoList() {
+    const data = JSON.parse(localStorage.getItem("todoList"));
+    if (!data) return new TodoList();
+  
+    const todoList = new TodoList();
+    todoList.projects = data.map(projectData => {
+      const project = new Project(projectData.name);
+      project.todos = projectData.todos.map(todo => 
+        new Todo(todo.title, todo.description, todo.dueDate, todo.priority));
+      return project;
+    });
+  
+    return todoList;
+  }
 }

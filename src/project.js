@@ -1,4 +1,5 @@
-import Todo from "./todo";
+import Todo from "./todo.js";
+import Storage from "./storage.js";
 export default class Project{
     constructor(name) {
         this.name = name;
@@ -7,9 +8,11 @@ export default class Project{
 
     addTodo(todo) {
         this.todos.push(todo);
+        Storage.saveTodoList(todoList);
     }
 
-    removeTodo(todoTitle) {
-        this.todos = this.todos.filter(todo => todo.title != todoTitle);
+    removeTodo(index) {
+        this.todos.splice(index, 1);
+        Storage.saveTodoList(todoList)
     }
 }
