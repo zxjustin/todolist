@@ -8,8 +8,8 @@
     "webpack-dev-server": "^5.2.0"
   },
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack serve --config webpack.dev.js"
+    "build": "webpack",
+    "start": "webpack serve"
   },
   "dependencies": {
     "date-fns": "^4.1.0"
